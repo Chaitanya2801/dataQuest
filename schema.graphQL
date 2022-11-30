@@ -1,0 +1,80 @@
+type LockedERC20Event@entity {
+  id: ID!
+  txHash: Bytes
+  fromAddress: Bytes # address
+  toAddress: Bytes # address
+  valueTransferred: BigInt
+  gasUsed: BigInt
+  gasPrice: BigInt
+  blockTimestamp: BigInt! # uint256
+  depositor: Bytes! # address
+  depositReceiver: Bytes! # address
+  rootToken: Bytes! # address
+  amount: BigInt! # uint256
+}
+
+type Transaction @entity {
+  id: ID!
+  token: Token!
+  txHash: Bytes!
+  fromAddress: Bytes # address
+  toAddress: Bytes # address
+  transactionType: String
+  gasUsed: BigInt
+  gasPrice: BigInt
+  lastUpdatedTimestamp: BigInt! # uint256
+  from: Bytes! # address
+  to: Bytes! # address
+  value: BigInt! # uint256
+}
+
+type TransferEntity @entity {
+  id: ID!
+  txHash: Bytes
+  fromAddress: Bytes # address
+  toAddress: Bytes # address
+  valueTransferred: BigInt
+  gasUsed: BigInt
+  gasPrice: BigInt
+  blockTimestamp: BigInt! # uint256
+  from: Bytes! # address
+  to: Bytes! # address
+  value: BigInt! # uint256
+}
+
+type Deposit @entity {
+  id: ID!
+  txHash: Bytes
+  fromAddress: Bytes # address
+  toAddress: Bytes # address
+  valueTransferred: BigInt
+  gasUsed: BigInt
+  gasPrice: BigInt
+  timestamp: BigInt! # uint256
+  assetId: BigInt! # uint256
+  depositorAddress: Bytes! # address
+  depositValue: BigInt! # uint256
+}
+
+type Withdrawal @entity {
+  id: ID!
+  txHash: Bytes
+  fromAddress: Bytes # address
+  toAddress: Bytes # address
+  valueTransferred: BigInt
+  gasUsed: BigInt
+  gasPrice: BigInt
+  blockTimestamp: BigInt! # uint256
+  account: Bytes! # address
+  token: Bytes! # address
+  amount: BigInt! # uint256
+}
+
+type User @entity {
+  id: ID!
+  address: Bytes!
+  blockHash: Bytes!
+  blockNumber: BigInt!
+  joinTimestamp: BigInt!
+}
+
